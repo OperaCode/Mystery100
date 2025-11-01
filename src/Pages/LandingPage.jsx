@@ -1,6 +1,9 @@
 import React from "react";
+import {  useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+
+    const navigate = useNavigate();
   return (
     <div>
       <div className="flex items-center justify-center h-screen bg-gradient-to-br from-blue-500 to-cyan-400 text-white text-center">
@@ -11,7 +14,7 @@ const LandingPage = () => {
             Can you beat the odds?
           </p>
           <button
-            onClick={() => navigate("/game")}
+            onClick={() => navigate("/home")}
             className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-xl hover:opacity-80 transition"
           >
             Start Game
