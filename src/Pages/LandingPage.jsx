@@ -1,9 +1,42 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const LandingPage = () => {
   const navigate = useNavigate();
+   const [headline, setHeadline] = useState("");
+   const fullHeadline = "Mystery100";
+
+// HeroText Animation- pause-2000ms,typespeed-100ms
+  useEffect(() => {
+    let index = 0;
+    let interval;
+
+    // start the typing animation
+    const startAnimation = () => {
+      interval = setInterval(() => {
+
+        // Update the headline state to include one more character --iter.
+        setHeadline(fullHeadline.slice(0, index + 1));
+        index++;
+
+        if (index === fullHeadline.length) {
+          clearInterval(interval);
+
+          setTimeout(() => {
+            index = 0;
+            setHeadline("");
+            startAnimation();
+          }, 2000);
+        }
+      }, 100); // Typing speed: 100ms
+    };
+
+    startAnimation(); 
+
+    return () => clearInterval(interval);
+  }, []);
+
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-600 via-purple-600 to-pink-500 flex items-center justify-center p-4 overflow-hidden">
@@ -38,7 +71,7 @@ const LandingPage = () => {
           transition={{ delay: 0.5 }}
           className="text-5xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg"
         >
-          GuessMaster
+         {headline}
         </motion.h1>
 
         {/* Subtitle */}
