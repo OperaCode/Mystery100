@@ -19,7 +19,7 @@ const LandingPage = () => {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="relative z-10 max-w-lg w-full text-center"
       >
-        {/* Logo / Icon */}
+        {/* Logo Icon */}
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
@@ -72,7 +72,7 @@ const LandingPage = () => {
           </button>
         </motion.div>
 
-        {/* Fun Stats / Teaser */}
+        {/* Fun Stats */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -80,7 +80,7 @@ const LandingPage = () => {
           className="mt-12 grid grid-cols-3 gap-4 text-sm text-gray-200"
         >
           <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-3">
-            <div className="font-bold text-2xl text-yellow-800">7</div>
+            <div className="font-bold text-2xl text-yellow-800">10</div>
             <div className="text-black font-bold">Attempts</div>
           </div>
           <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-3">

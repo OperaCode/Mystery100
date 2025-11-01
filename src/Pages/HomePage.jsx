@@ -39,7 +39,7 @@ export default function HomePage() {
   const restart = () => window.location.reload();
 
   return (
-    <>
+    <div className="bg-linear-to-br from-blue-600 via-purple-600 to-pink-500" >
       <header className="sticky top-0 z-40 w-full backdrop-blur bg-[#03001C]/60 border-b border-[#6C63FF]/30 shadow-lg px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <span className="text-2xl">❓💯</span>
@@ -56,7 +56,7 @@ export default function HomePage() {
         </a>
       </header>
 
-      <div className="flex items-center justify-center h-screen bg-[#03001C] bg-linear-to-b from-[#03001C] to-[#301E67]">
+      <div className="flex items-center justify-center h-screen ">
         <section className="relative">
           {/* SECRET HUD DISPLAY */}
           <div className="absolute -top-14 left-1/2 -translate-x-1/2">
@@ -106,6 +106,6 @@ export default function HomePage() {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }
