@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 export default function HomePage() {
-    // states for main game
+  // states for main game
   const [secret] = useState(Math.floor(Math.random() * 100) + 1);
   const [guess, setGuess] = useState("");
   const [message, setMessage] = useState("");
   const [attempts, setAttempts] = useState(10);
   const [gameOver, setGameOver] = useState(false);
-
-
-
 
   const handleGuess = () => {
     const num = Number(guess);
@@ -43,16 +40,23 @@ export default function HomePage() {
 
   return (
     <>
-      <header>
-        <div className="flex gap-2">
-          <h1>❓💯</h1>
-          <h2>Mystery100</h2>
+      <header className="sticky top-0 z-40 w-full backdrop-blur bg-[#03001C]/60 border-b border-[#6C63FF]/30 shadow-lg px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">❓💯</span>
+          <h2 className="text-xl font-bold text-indigo-100 tracking-wide">
+            Mystery100
+          </h2>
         </div>
-        <nav>
-          <button>Go Back</button>
-        </nav>
+
+        <a
+          href="/"
+          className="px-4 py-1.5 rounded-lg bg-[#6C63FF]/40 border border-[#6C63FF]/60 text-indigo-200 hover:bg-[#6C63FF]/70 transition font-medium text-sm"
+        >
+          ← Back to Landing
+        </a>
       </header>
-      <div className="flex items-center justify-center h-screen bg-[#03001C] bg-gradient-to-b from-[#03001C] to-[#301E67]">
+
+      <div className="flex items-center justify-center h-screen bg-[#03001C] bg-linear-to-b from-[#03001C] to-[#301E67]">
         <section className="relative">
           {/* SECRET HUD DISPLAY */}
           <div className="absolute -top-14 left-1/2 -translate-x-1/2">
