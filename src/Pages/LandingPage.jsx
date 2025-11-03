@@ -16,7 +16,7 @@ const LandingPage = () => {
     const startAnimation = () => {
       interval = setInterval(() => {
 
-        // Update the headline state to include one more character --iter.
+        // Update the headline state to include one more character .
         setHeadline(fullHeadline.slice(0, index + 1));
         index++;
 
@@ -46,7 +46,7 @@ const LandingPage = () => {
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-yellow-300 opacity-10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <motion.div
+      <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
@@ -69,7 +69,7 @@ const LandingPage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="text-5xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg"
+          className="text-5xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg h-10 lg:h-14"
         >
          {headline}
         </motion.h1>
@@ -95,9 +95,9 @@ const LandingPage = () => {
         >
           <button
             onClick={() => navigate("/home")}
-            className="group relative inline-flex items-center gap-3 bg-white text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 font-bold text-xl px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
+            className="group relative inline-flex items-center gap-3 bg-white text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 font-bold text-xl px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border-cyan-500 border-2 hover:scale-110 cursor-pointer"
           >
-            <span className="relative z-10 text-black font-bold cursor-pointer">Start Game</span>
+            <span className="relative z-10 text-white font-bold  ">Start Game</span>
             <span className="relative z-10">▶</span>
 
             {/* Button Shine Effect */}
@@ -110,22 +110,22 @@ const LandingPage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="mt-12 grid grid-cols-3 gap-4 text-sm text-gray-200"
+          className="mt-12 grid grid-cols-3 gap-4 text-sm text-gray-200 "
         >
-          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-3">
+          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-3 hover:scale-110">
             <div className="font-bold text-2xl text-yellow-800">10</div>
             <div className="text-black font-bold">Attempts</div>
           </div>
-          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-3">
+          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-3 hover:scale-110">
             <div className="font-bold text-2xl text-green-800">1–100</div>
             <div className="text-black font-bold">Range</div>
           </div>
-          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-3">
+          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-3 hover:scale-110">
             <div className="font-bold text-2xl text-pink-800">∞</div>
             <div className="text-black font-bold">Fun</div>
           </div>
         </motion.div>
-      </motion.div>
+      </motion.section>
     </div>
   );
 };
