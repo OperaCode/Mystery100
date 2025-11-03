@@ -78,7 +78,7 @@ export default function HomePage() {
       <div className="flex items-center justify-center h-screen ">
         <section className="relative">
           {/* SECRET NUMBER DISPLAY BLUR */}
-          <div className="absolute -top-18 left-1/2 -translate-x-1/2 ">
+          <div className="absolute -top-18 left-1/2 -translate-x-1/2 border-cyan-400 shadow-md border-2 rounded-2xl">
             <div className="px-8 py-2 rounded-xl border-2 text-4xl font-extrabold text-white/60 blur">
               {secret}
             </div>
@@ -114,53 +114,83 @@ export default function HomePage() {
 
           {/* MAIN GAME BODY */}
           {difficulty && (
-            <main>
-              {/* Introduction space to game */}
-              <div>Introduction</div>
-
-              {/* Main game input */}
-              <div className="bg-white/10 backdrop-blur-xl p-10 rounded-[30px] shadow-[0_0_30px_#6C63FF44] w-[380px] text-center border border-white/20 text-white">
-                <h1 className="text-3xl font-black mb-3 tracking-wide">
-                  Number Guesser
-                </h1>
-
-                <p className="mb-4 font-bold text-sm text-white/70 uppercase tracking-wide">
-                  Difficulty{difficulty || "None"} - Attempts {""}
-                  <span className="text-[#00E1FF] font-bold">{attempts}</span>
+            <main className="grid grid-cols-3 gap-6 p-10 text-white max-w-5xl mx-auto">
+              {/* LEFT COLUMN — ARCADE RETRO INTRO */}
+              <div className="bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/20 shadow-[0_0_30px_#6C63FF44] flex flex-col justify-center">
+                <h2 className="text-2xl font-black mb-3 tracking-wider uppercase">
+                  Arcade Mode 🎮
+                </h2>
+                <p className="text-white/80 leading-relaxed text-sm">
+                  Welcome Challenger! Hidden deep in the machine is a secret
+                  number between
+                  <span className="font-bold text-cyan-400">1</span> and
+                  <span className="font-bold text-cyan-400">100</span>. You have
+                  limited attempts - your difficulty level determines how many
+                  attempts you get. Trust your instincts. Beat the machine.
+                  Prove you are the champion and register your name in the{" "}
+                  <span className="font-bold text-cyan-400">
+                    Mystery100 Hall of Fame
+                  </span>
                 </p>
-
-                <input
-                  type="number"
-                  className="bg-white/20 text-white placeholder-white/50 border border-white/30 w-full p-3 rounded-xl mb-4 outline-none focus:border-[#00E1FF] transition"
-                  placeholder="Enter your guess..."
-                  value={guess}
-                  onChange={(e) => setGuess(e.target.value)}
-                  disabled={gameOver}
-                />
-
-                <button
-                  onClick={handleGuess}
-                  disabled={gameOver}
-                  className="bg-[#6C63FF] hover:bg-[#5a52e7] text-white px-4 py-3 rounded-xl w-full mb-3 font-semibold tracking-wide transition disabled:opacity-25"
-                >
-                  Guess
-                </button>
-
-                <p className="font-bold text-xl mb-4 text-[#00E1FF]">
-                  {message}
+                <p className="mt-4 font-bold text-cyan-400 text-sm uppercase tracking-widest">
+                  Enter your Guess 👉
                 </p>
-
-                {gameOver && (
-                  <button
-                    onClick={restart}
-                    className="bg-[#00E1FF] hover:bg-[#00c9e7] text-black font-bold px-4 py-3 rounded-xl w-full tracking-wide"
-                  >
-                    Restart Game
-                  </button>
-                )}
               </div>
 
-              <div>Leaderboard</div>
+              {/* CENTER COLUMN — main original game UI will render dynamically here */}
+              <div className="col-span-1 flex justify-center items-center">
+                {/* Main game input */}
+                <div className="bg-white/10 backdrop-blur-xl p-10 rounded-[30px] shadow-[0_0_30px_#6C63FF44] w-[380px] text-center border border-white/20 text-white">
+                  <h1 className="text-3xl font-black mb-3 tracking-wide">
+                    Number Guesser
+                  </h1>
+
+                  <p className="mb-4 font-bold text-sm text-white/70 uppercase tracking-wide">
+                    Difficulty{difficulty || "None"} - Attempts {""}
+                    <span className="text-[#00E1FF] font-bold">{attempts}</span>
+                  </p>
+
+                  <input
+                    type="number"
+                    className="bg-white/20 text-white placeholder-white/50 border border-white/30 w-full p-3 rounded-xl mb-4 outline-none focus:border-[#00E1FF] transition"
+                    placeholder="Enter your guess..."
+                    value={guess}
+                    onChange={(e) => setGuess(e.target.value)}
+                    disabled={gameOver}
+                  />
+
+                  <button
+                    onClick={handleGuess}
+                    disabled={gameOver}
+                    className="bg-[#6C63FF] hover:bg-[#5a52e7] text-white px-4 py-3 rounded-xl w-full mb-3 font-semibold tracking-wide transition disabled:opacity-25"
+                  >
+                    Guess
+                  </button>
+
+                  <p className="font-bold text-xl mb-4 text-[#00E1FF]">
+                    {message}
+                  </p>
+
+                  {gameOver && (
+                    <button
+                      onClick={restart}
+                      className="bg-[#00E1FF] hover:bg-[#00c9e7] text-black font-bold px-4 py-3 rounded-xl w-full tracking-wide"
+                    >
+                      Restart Game
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* RIGHT COLUMN — leaderboard placeholder */}
+              <div className="bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/20 shadow-[0_0_30px_#6C63FF44] flex flex-col items-center justify-center text-center">
+                <h2 className="text-2xl font-black mb-3 tracking-wider">
+                  Leaderboard 🏆
+                </h2>
+                <p className="text-white/75 text-sm">
+                  Coming Soon — Top scorers will appear here
+                </p>
+              </div>
             </main>
           )}
         </section>
