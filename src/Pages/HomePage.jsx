@@ -1,6 +1,7 @@
 import { div } from "framer-motion/client";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import GameCard from "../components/GameCard";
 
 export default function HomePage() {
   // states for main game
@@ -78,8 +79,12 @@ export default function HomePage() {
       <div className="flex items-center justify-center h-screen ">
         <section className="relative">
           {/* SECRET NUMBER DISPLAY BLUR */}
-          <div className="absolute -top-18 left-1/2 -translate-x-1/2 border-cyan-400 shadow-md border-2 rounded-2xl">
-            <div className="px-8 py-2 rounded-xl border-2 text-4xl font-extrabold text-white/60 blur">
+          <div className="absolute -top-18 left-1/2 -translate-x-1/2 border-cyan-400 shadow-md  rounded-2xl">
+            <div
+              className={`px-8 py-2 rounded-xl border-2 text-4xl font-extrabold text-white/60 transition ${
+                gameOver ? "blur-none" : "blur-sm"
+              }`}
+            >
               {secret}
             </div>
           </div>
@@ -115,7 +120,7 @@ export default function HomePage() {
           {/* MAIN GAME BODY */}
           {difficulty && (
             <main className="grid grid-cols-3 gap-6 p-10 text-white max-w-5xl mx-auto">
-              {/* LEFT COLUMN — ARCADE RETRO INTRO */}
+              {/* LEFT COLUMN — INTRO */}
               <div className="bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/20 shadow-[0_0_30px_#6C63FF44] flex flex-col justify-center">
                 <h2 className="text-2xl font-black mb-3 tracking-wider uppercase">
                   Arcade Mode 🎮
@@ -140,52 +145,22 @@ export default function HomePage() {
               {/* CENTER COLUMN — main original game UI will render dynamically here */}
               <div className="col-span-1 flex justify-center items-center">
                 {/* Main game input */}
-                <div className="bg-white/10 backdrop-blur-xl p-10 rounded-[30px] shadow-[0_0_30px_#6C63FF44] w-[380px] text-center border border-white/20 text-white">
-                  <h1 className="text-3xl font-black mb-3 tracking-wide">
-                    Number Guesser
-                  </h1>
-
-                  <p className="mb-4 font-bold text-sm text-white/70 uppercase tracking-wide">
-                    Difficulty{difficulty || "None"} - Attempts {""}
-                    <span className="text-[#00E1FF] font-bold">{attempts}</span>
-                  </p>
-
-                  <input
-                    type="number"
-                    className="bg-white/20 text-white placeholder-white/50 border border-white/30 w-full p-3 rounded-xl mb-4 outline-none focus:border-[#00E1FF] transition"
-                    placeholder="Enter your guess..."
-                    value={guess}
-                    onChange={(e) => setGuess(e.target.value)}
-                    disabled={gameOver}
-                  />
-
-                  <button
-                    onClick={handleGuess}
-                    disabled={gameOver}
-                    className="bg-[#6C63FF] hover:bg-[#5a52e7] text-white px-4 py-3 rounded-xl w-full mb-3 font-semibold tracking-wide transition disabled:opacity-25"
-                  >
-                    Guess
-                  </button>
-
-                  <p className="font-bold text-xl mb-4 text-[#00E1FF]">
-                    {message}
-                  </p>
-
-                  {gameOver && (
-                    <button
-                      onClick={restart}
-                      className="bg-[#00E1FF] hover:bg-[#00c9e7] text-black font-bold px-4 py-3 rounded-xl w-full tracking-wide"
-                    >
-                      Restart Game
-                    </button>
-                  )}
-                </div>
+                <GameCard
+                  difficulty={difficulty}
+                  attempts={attempts}
+                  guess={guess}
+                  setGuess={setGuess}
+                  gameOver={gameOver}
+                  handleGuess={handleGuess}
+                  message={message}
+                  restart={restart}
+                />
               </div>
 
               {/* RIGHT COLUMN — leaderboard placeholder */}
               <div className="bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/20 shadow-[0_0_30px_#6C63FF44] flex flex-col items-center justify-center text-center">
                 <h2 className="text-2xl font-black mb-3 tracking-wider">
-                  Leaderboard 🏆
+                  Hall of Fame 🏆
                 </h2>
                 <p className="text-white/75 text-sm">
                   Coming Soon — Top scorers will appear here

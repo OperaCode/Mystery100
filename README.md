@@ -1,6 +1,6 @@
 # 🎮 Mystery100 — Number Guessing Game
 
-Mystery100 is a fun & fast mini-game where the a player tries to guess a secret number between **1 – 100** within **10 attempts**.
+*Mystery100* is a fun & fast mini-game where the a player tries to guess a secret number between **1 – 100** within **10 attempts**.
 
 The UI is themed like a futuristic neon mystery challenge — blurred secret HUD, glowing animations, and smooth feedback to make the game feel like a real cyber guessing challenge.
 

@@ -82,7 +82,7 @@ const LandingPage = () => {
           className="text-lg md:text-xl text-gray-100 mb-10 leading-relaxed max-w-md mx-auto"
         >
           Crack the code. Guess the secret number between <strong>1 and 100</strong>. 
-          Only <span className="text-yellow-300 font-bold">7 attempts</span>. Think you can do it?
+          Only <span className="text-yellow-300 font-bold">10 attempts</span>. Think you can do it?
         </motion.p>
 
         {/* CTA Button */}
