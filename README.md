@@ -17,7 +17,7 @@ The UI is themed like a futuristic neon mystery challenge — blurred secret HUD
 | 🔮 Secret HUD blurred display | secret number is “visible but hidden” |
 | ✨ Animated UI | neon glow + cyber vibe |
 | 🔁 Restart option | restart game any time |
-| 💾 (Coming soon) Leaderboard | save top player scores locally |
+|
 
 ---
 
